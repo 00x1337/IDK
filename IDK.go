@@ -51,6 +51,27 @@ func (b *DATA_BLOB) ToByteArray() []byte {
 	return d
 }
 
+func new(name string, text string){
+	f, err := os.Create(name+".txt")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.Close()
+
+	_, err2 := f.WriteString(string(ar))
+
+	if err2 != nil {
+		log.Fatal(err2)
+	}
+
+	err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 func Decrypt(data []byte) ([]byte, error) {
 	var outblob DATA_BLOB
 	r, _, err := procDecryptData.Call(uintptr(unsafe.Pointer(NewBlob(data))), 0, 0, 0, 0, 0, uintptr(unsafe.Pointer(&outblob)))
