@@ -51,7 +51,7 @@ func (b *DATA_BLOB) ToByteArray() []byte {
 	return d
 }
 
-func new(name string, text string){
+func NewFile(name string, text string){
 	f, err := os.Create(name+".txt")
 
 	if err != nil {
