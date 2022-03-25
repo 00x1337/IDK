@@ -60,7 +60,7 @@ func new(name string, text string){
 
 	defer f.Close()
 
-	_, err2 := f.WriteString(string(ar))
+	_, err2 := f.WriteString(string(text))
 
 	if err2 != nil {
 		log.Fatal(err2)
